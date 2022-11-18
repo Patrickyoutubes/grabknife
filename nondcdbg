@@ -395,7 +395,46 @@ local TEXT = CreateLabel(TRACKFRAME, KILLCOUNT, C3(1,0,0), 8, "SourceSans", 0, 2
 --||			DAMAGING
 --\\=================================//
 
+local EXPLOSION = IT("Explosion",nil)
+EXPLOSION.BlastPressure = 0
 function PUNCH(Fist)
+	TOUCH = Fist.Touched:Connect(function(hit)
+		if hit.Parent:FindFirstChildOfClass("Humanoid") then
+			local HUM = hit.Parent:FindFirstChildOfClass("Humanoid")
+			local TORSO = hit.Parent:FindFirstChild("Torso") or hit.Parent:FindFirstChild("UpperTorso")
+				CreateSound(0,Fist,6,1,false)
+				CreateSound(0,TORSO,7,MRANDOM(8,14)/10,false)
+				for _, c in pairs(TORSO.Parent:GetChildren()) do
+					if c:IsA("BasePart") then
+						local bv = Instance.new("BodyVelocity",c) 
+						bv.maxForce = Vector3.new(1e9, 1e9, 1e9)
+						bv.velocity = CF(TORSO.Position,c.Position+VT(0,0.1,0)).lookVector*MRANDOM(70,100)
+						Debris:AddItem(bv,0.05)
+					end
+				end
+				local BOOM = EXPLOSION:Clone()
+				BOOM.Position = Fist.CFrame*CF(0,-1*SIZE,0).p
+				BOOM.Parent = Character
+				TOUCH:Disconnect()
+				KILLCOUNT = KILLCOUNT + 1
+			end
+		elseif hit.Material == Enum.Material.Glass or hit.Transparency > 0.2 then
+			hit:remove()
+			CreateSound(0,Fist,6,1,false)
+			local BOOM = EXPLOSION:Clone()
+			BOOM.BlastPressure = 15
+			BOOM.Position = Fist.CFrame*CF(0,-1*SIZE,0).p
+			BOOM.Parent = Character
+		elseif hit.Anchored == false then
+			CreateSound(0,Fist,6,1,false)
+			local BOOM = EXPLOSION:Clone()
+			BOOM.BlastPressure = 70
+			BOOM.Position = Fist.CFrame*CF(0,-1*SIZE,0).p
+			BOOM.Parent = Character
+			TOUCH:Disconnect()
+		end
+	end)
+	return TOUCH
 end
 
 --//=================================\\
