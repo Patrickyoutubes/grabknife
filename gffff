@@ -2,6 +2,13 @@
 --snake by 1+1=2(roblox)/rouxhaver(github)
 --use with r6 and blocky r15
 
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = "";
+	Text = "Thanks for showcasing it Im patrick";
+	Icon = ""})
+Duration = 16;
+
+
 me = workspace[game.Players.LocalPlayer.Name]
 
 local rtype = 0
