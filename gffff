@@ -3,7 +3,7 @@
 --use with r6 and blocky r15
 
 game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = "#### ## rouxhaver";
+	Title = "#### ## 1+1=2 rouxhaver";
 	Text = "sub Im patrick";
 	Icon = ""})
 Duration = 16;
