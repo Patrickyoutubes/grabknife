@@ -1788,7 +1788,7 @@ end
 --\\=================================//
 
 function MouseDown(Mouse)
-fling(HandlePart.Position, 0.3)
+fling(HandlePart.Position, 1)
 	if ATTACK == false then
 		Swing()
 	end
