@@ -1,14 +1,4 @@
-game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = "";
-	Text = "don't click fling tool, wait until you get a free headless";
-	Icon = "rbxthumb://type=Asset&id=11774242795&w=150&h=150"})
-Duration = 19;
 
-game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = "by TheBaconHacker";
-	Text = "Sub Im Patrick Today.     [Patrick Teams]";
-	Icon = "rbxthumb://type=Asset&id=11774242795&w=150&h=150"})
-Duration = 26;
 
 me = workspace[game.Players.LocalPlayer.Name]
 
