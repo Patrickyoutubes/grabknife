@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Patrickyoutubes/grabknife/main/keystrokesv2.lua"))()
